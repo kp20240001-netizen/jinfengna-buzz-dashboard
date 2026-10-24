@@ -127,6 +127,22 @@ for idx, n in enumerate(data["extra_news_7"], 1):
         f"</tr>"
     )
 
+# Build Director Channel (@rawdramalife) Filtered Promo Videos Rows
+dir_info = data["director_channel_rawdramalife"]
+dir_rows_html = []
+for idx, v in enumerate(dir_info["videos"], 1):
+    dir_rows_html.append(
+        f"<tr>"
+        f"<td class='col-center'>{idx}</td>"
+        f"<td><span class='pf-tag'>{v['type']}</span></td>"
+        f"<td class='col-num'>{v['upload_date']}</td>"
+        f"<td class='col-metric'><a href='{v['url']}' target='_blank' rel='noopener' class='comment-link'>{v['title']}</a></td>"
+        f"<td class='col-num col-highlight'>{v['views']:,} 次</td>"
+        f"<td class='col-num col-delta-text'>+{v['likes']} 讚</td>"
+        f"<td><a href='{v['url']}' target='_blank' rel='noopener' class='action-link'>觀看影片 ↗</a></td>"
+        f"</tr>"
+    )
+
 dc = data["dcard_details"]
 tag = dc["topic_tag"]
 
@@ -553,8 +569,8 @@ html_out = f"""<!DOCTYPE html>
 
     <div class="controls-row">
       <div class="pill-group" role="group" aria-label="燈號篩選">
-        <button type="button" class="pill-btn hm-status-btn active" onclick="filterHeatmapStatus('all', this)">全部燈號 (14)</button>
-        <button type="button" class="pill-btn hm-status-btn" onclick="filterHeatmapStatus('green', this)">🟢 成長 (11)</button>
+        <button type="button" class="pill-btn hm-status-btn active" onclick="filterHeatmapStatus('all', this)">全部燈號 (15)</button>
+        <button type="button" class="pill-btn hm-status-btn" onclick="filterHeatmapStatus('green', this)">🟢 成長 (12)</button>
         <button type="button" class="pill-btn hm-status-btn" onclick="filterHeatmapStatus('yellow', this)">🟡 持平 (3)</button>
       </div>
     </div>
@@ -576,6 +592,30 @@ html_out = f"""<!DOCTYPE html>
         </thead>
         <tbody>
           {"".join(hm_rows_html)}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Director Channel @rawdramalife Filtered Promo Tracking Panel -->
+    <div class="dcard-box" style="margin-top:18px; margin-bottom:14px;">
+      <h4>🎬 導演謝庭菡自有頻道《抓馬人生不打碼》（<a href="https://www.youtube.com/@rawdramalife" target="_blank" rel="noopener" class="action-link">@rawdramalife</a>｜1.18 萬訂閱）電影宣傳專區 — 嚴格過濾小計：4,136 次觀看 ／ 23 讚</h4>
+      <p><b>【永久嚴格過濾規則】</b>{dir_info['strict_filtering_rule']}</p>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="col-center">序號</th>
+            <th>影片類型與片長</th>
+            <th class="col-num">上架日期</th>
+            <th>《消失的金鳳娜》專屬宣傳影片標題（點擊觀看）</th>
+            <th class="col-num">2026-10-25 觀看數</th>
+            <th class="col-num">按讚數</th>
+            <th>連結</th>
+          </tr>
+        </thead>
+        <tbody>
+          {"".join(dir_rows_html)}
         </tbody>
       </table>
     </div>
@@ -713,7 +753,7 @@ html_out = f"""<!DOCTYPE html>
     <div class="sec-head">
       <div>
         <h2 class="sec-title">4. 各平台細部數據與真實評論檢索庫（2026-10-25 最新）</h2>
-        <p class="sec-sub">提供即時關鍵字搜尋、平台快速過濾與分頁檢索，完整收錄 24 項量化指標、12 則 YouTube 留言、15 則 PTT 推文、Dcard 實測與 9 則表外新聞影評。</p>
+        <p class="sec-sub">提供即時關鍵字搜尋、平台快速過濾與分頁檢索，完整收錄 28 項量化指標、12 則 YouTube 留言、15 則 PTT 推文、Dcard 實測與 9 則表外新聞影評。</p>
       </div>
     </div>
 
@@ -731,7 +771,7 @@ html_out = f"""<!DOCTYPE html>
     </div>
 
     <div class="tab-bar" role="tablist">
-      <button type="button" class="tab-btn active" onclick="switchDetailTab('tab-quant', this)">📊 全平台 24 項指標逐日明細</button>
+      <button type="button" class="tab-btn active" onclick="switchDetailTab('tab-quant', this)">📊 全平台 28 項指標逐日明細</button>
       <button type="button" class="tab-btn" onclick="switchDetailTab('tab-yt-comments', this)">💬 YouTube 12 則真實觀眾評論</button>
       <button type="button" class="tab-btn" onclick="switchDetailTab('tab-ptt-dcard', this)">🎓 PTT 15 則推文 ＆ Dcard 實測</button>
       <button type="button" class="tab-btn" onclick="switchDetailTab('tab-news', this)">📰 表外新增 9 則新聞、影評與雄影特映</button>
