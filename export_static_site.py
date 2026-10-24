@@ -143,6 +143,19 @@ for idx, v in enumerate(dir_info["videos"], 1):
         f"</tr>"
     )
 
+# Build Gemini Pro 8 Golden 60-Second Cuts Rows
+golden_cuts_rows_html = []
+for c in data.get("gemini_golden_cuts_8", []):
+    golden_cuts_rows_html.append(
+        f"<tr>"
+        f"<td class='col-center'><span class='status-pill status-pill-green'>{c['cut_id']}</span></td>"
+        f"<td><span class='pf-tag'>{c['source']}</span></td>"
+        f"<td class='col-num col-highlight'><a href='{c['url']}' target='_blank' rel='noopener' class='action-link'>{c['timestamp']} ↗</a></td>"
+        f"<td class='col-metric'><b>{c['banner']}</b><br><span style='font-size:0.84rem;color:#cbd5e1;'>{c['hook']}</span></td>"
+        f"<td><span class='chip-tag'>{c['audience']}</span></td>"
+        f"</tr>"
+    )
+
 dc = data["dcard_details"]
 tag = dc["topic_tag"]
 
@@ -712,6 +725,28 @@ html_out = f"""<!DOCTYPE html>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Gemini Pro 8 Golden 60-Second Radio & Interview Cuts Table -->
+    <div class="dcard-box" style="margin-top:20px; margin-bottom:14px;">
+      <h4>🎙️ Gemini 3.1 Pro 電台與專訪多模態拆解：8 大「黃金 60 秒」破圈短片切點庫（<a href="https://docs.google.com/document/d/1d6NUoprhm65mLx9gJSLyGUC6PmwGqbbE5ByKmbJekAw/edit" target="_blank" rel="noopener" class="action-link">📄 開啟完整逐字稿與分鏡報告 Google Doc ↗</a>）</h4>
+      <p>已針對《抓馬人生不打碼》(@rawdramalife 47m)、POP Radio《POP最正點》(52m)、中廣《欸！我說到哪裡了》(38m)、WhatA VOGUE 首映 QA (22m) 與 TVBS 試片訪談完成輕量音訊提取與 Gemini Pro 逐字稿情緒爆點拆解，點擊時間軸即可直達原片秒數：</p>
+    </div>
+    <div class="table-wrap" style="margin-bottom:20px;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="col-center">切點編號</th>
+            <th>來源節目與受訪來賓</th>
+            <th class="col-num">精確時間軸 (點擊直達)</th>
+            <th>紅底新聞風縮圖大標 ＆ 100% 來賓原話金句逐字稿</th>
+            <th>目標破圈受眾</th>
+          </tr>
+        </thead>
+        <tbody>
+          {"".join(golden_cuts_rows_html)}
+        </tbody>
+      </table>
     </div>
 
     <div class="table-wrap">
