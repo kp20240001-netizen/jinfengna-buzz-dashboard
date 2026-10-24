@@ -161,7 +161,7 @@ st.markdown(f"""
 <div class="cmd-header">
     <div>
         <span class="cmd-title">🎬 《消失的金鳳娜》THE EVIL INSIDE｜即時聲量戰情室</span>
-        <span class="countdown-pill">距離 10/29 全台上映倒數 5 天</span>
+        <span class="countdown-pill">距離 10/29 全台上映倒數 4 天｜今日 16:00 高雄電影節特映</span>
     </div>
     <div style="font-size:0.85rem;color:#94A3B8;">最後同步：{data['last_updated']}</div>
 </div>
@@ -170,34 +170,34 @@ st.markdown(f"""
     <div class="bento-hero">
         <div style="font-family:var(--font-mono);font-size:0.78rem;color:#FCD34D;margin-bottom:6px;">CROSS-PLATFORM TOTAL BUZZ &amp; REACH</div>
         <div style="font-size:1.25rem;font-weight:800;margin-bottom:10px;">全網跨平台累計總觸及與互動聲量</div>
-        <div class="hero-big-num">481,648</div>
-        <div style="color:#6EE7B7;font-family:var(--font-mono);font-weight:700;margin:8px 0;">🟢 +71,298 (+17.4%) vs 昨日</div>
-        <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.65;">核心預告與社群擴散總聲量 264,347（單日 +62,252 / +30.8%），加計新聞媒體與外部長短影音跨平台總觸及達 481,648 次。</p>
+        <div class="hero-big-num">548,920</div>
+        <div style="color:#6EE7B7;font-family:var(--font-mono);font-weight:700;margin:8px 0;">🟢 +67,272 (+14.0%) vs 昨日</div>
+        <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.65;">核心預告與社群擴散總聲量達 318,992（單日 +54,645 / +20.7%），加計 162 則新聞媒體與外部長短影音跨平台總觸及達 548,920 次。</p>
     </div>
     <div class="bento-card">
         <div class="card-label">YouTube 預告與花絮總觀看</div>
-        <div class="card-val">198,208</div>
-        <div class="card-delta">🟢 +53,751 (+37.2%)</div>
+        <div class="card-val">244,876</div>
+        <div class="card-delta">🟢 +46,668 (+23.5%)</div>
     </div>
     <div class="bento-card">
         <div class="card-label">FB 雙粉專與演員貼文互動量</div>
-        <div class="card-val">1,116 人</div>
-        <div class="card-delta">🟢 +350 人 (+45.7%)</div>
+        <div class="card-val">279 粉 / 429 互動</div>
+        <div class="card-delta">🟢 張翰 148 讚｜謝文憲 82 讚</div>
     </div>
     <div class="bento-card">
         <div class="card-label">IG 官方追蹤與 Reels 互動量</div>
-        <div class="card-val">374 粉 / 757 互動</div>
-        <div class="card-delta">🟢 +38 粉 (+11.3%)</div>
+        <div class="card-val">389 粉 / 820 互動</div>
+        <div class="card-delta">🟢 +15 粉 (+4.0%)｜45 貼文</div>
     </div>
     <div class="bento-card">
         <div class="card-label">Threads @9wo0725 與脆友熱議</div>
-        <div class="card-val">31.0K 瀏覽 / 1,503 互動</div>
-        <div class="card-delta">🟢 單篇最高 980 讚</div>
+        <div class="card-val">31.5K 瀏覽 / 4,531 互動</div>
+        <div class="card-delta">🟢 單篇飆至 3,536 讚 (+261%)</div>
     </div>
     <div class="bento-card" style="grid-column: span 2;">
         <div class="card-label">媒體新聞與論壇（Dcard / PTT / Google Trends）擴散</div>
-        <div class="card-val">160 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 80 (峰值 100)</div>
-        <div class="card-delta">🟢 雙片搜尋對照 48 : 18 領先《消失的她》2.7 倍</div>
+        <div class="card-val">162 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 97 (連3日滿檔)</div>
+        <div class="card-delta">🟢 雙片搜尋對照 51 : 43 連 4 日領先《消失的她》｜今日 16:00 高雄電影節特映</div>
     </div>
 </div>
 """, unsafe_allow_html=True)

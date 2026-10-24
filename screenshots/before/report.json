@@ -1,0 +1,115 @@
+[
+  {
+    "file": "page-1440x900.png",
+    "state": null,
+    "size": "1440x900",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "sideStripe",
+        "label": "彩色单侧边线",
+        "count": 3,
+        "examples": [
+          "div.info-card「✅ Dcard 登入與搜尋狀態 已登入（「金鳳娜」（4px）",
+          "div.info-card「🏷️ 話題標籤（1 個）：#消失的金鳳娜 📄」（4px）",
+          "div.info-card「🌪️ 為什麼 Dcard 尚無學生映後文？ 官」（4px）"
+        ]
+      },
+      {
+        "rule": "nestedCards",
+        "label": "卡片里套卡片",
+        "count": 2,
+        "examples": [
+          "div.table-scroll「序號文章推文類型作者 ID推文內容 1[情報] 」（外层 details.expander）",
+          "div.table-scroll「編號日期媒體標題原文連結 12026-10-24」（外层 details.expander）"
+        ]
+      },
+      {
+        "rule": "tightLeading",
+        "label": "多行正文行高过紧",
+        "count": 5,
+        "examples": [
+          "span.hero-eyebrow「⏱️ 每日自動更新儀表板 ｜ 最後同步：2026」（1.20）",
+          "summary「🖼️ 點擊展開：《消失的金鳳娜》12 則 Yo」（1.20）",
+          "summary「📌 點擊展開：PTT movie 板全部 15」（1.20）"
+        ]
+      },
+      {
+        "rule": "longMeasure",
+        "label": "正文行太长",
+        "count": 6,
+        "examples": [
+          "span.hero-eyebrow「⏱️ 每日自動更新儀表板 ｜ 最後同步：2026」（每行约 48 字）",
+          "p.hero-summary「全網累積總聲量單日成長 +30.8%（202,0」（每行约 78 字）",
+          "summary「🖼️ 點擊展開：《消失的金鳳娜》12 則 Yo」（每行约 87 字）"
+        ]
+      },
+      {
+        "rule": "sourceSplit",
+        "label": "本地页面文件较大或有超长行，适合按功能拆分",
+        "count": 1,
+        "examples": [
+          "index.html（1115 KiB）"
+        ]
+      }
+    ]
+  },
+  {
+    "file": "page-390x844.png",
+    "state": null,
+    "size": "390x844",
+    "zoom": 1,
+    "animationWaitMs": 0,
+    "issues": [],
+    "lint": [
+      {
+        "rule": "sideStripe",
+        "label": "彩色单侧边线",
+        "count": 3,
+        "examples": [
+          "div.info-card「✅ Dcard 登入與搜尋狀態 已登入（「金鳳娜」（4px）",
+          "div.info-card「🏷️ 話題標籤（1 個）：#消失的金鳳娜 📄」（4px）",
+          "div.info-card「🌪️ 為什麼 Dcard 尚無學生映後文？ 官」（4px）"
+        ]
+      },
+      {
+        "rule": "nestedCards",
+        "label": "卡片里套卡片",
+        "count": 3,
+        "examples": [
+          "span.hero-eyebrow「⏱️ 每日自動更新儀表板 ｜ 最後同步：2026」（外层 div.hero-wrap）",
+          "div.table-scroll「序號文章推文類型作者 ID推文內容 1[情報] 」（外层 details.expander）",
+          "div.table-scroll「編號日期媒體標題原文連結 12026-10-24」（外层 details.expander）"
+        ]
+      },
+      {
+        "rule": "tightLeading",
+        "label": "多行正文行高过紧",
+        "count": 8,
+        "examples": [
+          "span.hero-eyebrow「⏱️ 每日自動更新儀表板 ｜ 最後同步：2026」（1.20）",
+          "h2.section-title「🎓 3. Dcard 登入搜尋結果專區 ＆ \ud83d」（1.20）",
+          "summary「🖼️ 點擊展開：《消失的金鳳娜》12 則 Yo」（1.20）"
+        ]
+      },
+      {
+        "rule": "longMeasure",
+        "label": "正文行太长",
+        "count": 1,
+        "examples": [
+          "div「發文單位：國立臺灣藝術大學 ｜ 發布時間：202」（每行约 47 字）"
+        ]
+      },
+      {
+        "rule": "sourceSplit",
+        "label": "本地页面文件较大或有超长行，适合按功能拆分",
+        "count": 1,
+        "examples": [
+          "index.html（1115 KiB）"
+        ]
+      }
+    ]
+  }
+]
