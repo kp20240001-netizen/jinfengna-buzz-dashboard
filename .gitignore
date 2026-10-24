@@ -1,0 +1,4 @@
+*.log
+*.png
+!3_audience_wordcloud_20261024.png
+__pycache__/
