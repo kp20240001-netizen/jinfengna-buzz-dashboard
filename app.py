@@ -170,14 +170,14 @@ st.markdown(f"""
     <div class="bento-hero">
         <div style="font-family:var(--font-mono);font-size:0.78rem;color:#FCD34D;margin-bottom:6px;">CROSS-PLATFORM TOTAL BUZZ &amp; REACH</div>
         <div style="font-size:1.25rem;font-weight:800;margin-bottom:10px;">全網跨平台累計總觸及與互動聲量</div>
-        <div class="hero-big-num">548,920</div>
-        <div style="color:#6EE7B7;font-family:var(--font-mono);font-weight:700;margin:8px 0;">🟢 +67,272 (+14.0%) vs 昨日</div>
-        <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.65;">核心預告與社群擴散總聲量達 318,992（單日 +54,645 / +20.7%），加計 162 則新聞媒體與外部長短影音跨平台總觸及達 548,920 次。</p>
+        <div class="hero-big-num">552,497</div>
+        <div style="color:#6EE7B7;font-family:var(--font-mono);font-weight:700;margin:8px 0;">🟢 +70,849 (+14.7%) vs 昨日｜09:00 較 04:15 +3,577</div>
+        <p style="font-size:0.9rem;color:#E2E8F0;line-height:1.65;">核心預告與社群擴散總聲量達 322,569（單日 +58,222 / +22.0%｜09:00 晨間刷新），加計 164 則新聞媒體與外部長短影音跨平台總觸及達 552,497 次。</p>
     </div>
     <div class="bento-card">
         <div class="card-label">YouTube 預告與花絮總觀看</div>
-        <div class="card-val">244,876</div>
-        <div class="card-delta">🟢 +46,668 (+23.5%)</div>
+        <div class="card-val">248,421</div>
+        <div class="card-delta">🟢 +50,213 (+25.3%)｜較04:15 +3,545</div>
     </div>
     <div class="bento-card">
         <div class="card-label">FB 雙粉專與演員貼文互動量</div>
@@ -196,7 +196,7 @@ st.markdown(f"""
     </div>
     <div class="bento-card" style="grid-column: span 2;">
         <div class="card-label">媒體新聞與論壇（Dcard / PTT / Google Trends）擴散</div>
-        <div class="card-val">162 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 97 (連3日滿檔)</div>
+        <div class="card-val">164 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 97 (04:15 讀數)</div>
         <div class="card-delta">🟢 雙片搜尋對照 51 : 43 連 4 日領先《消失的她》｜今日 16:00 高雄電影節特映</div>
     </div>
 </div>

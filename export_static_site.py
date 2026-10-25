@@ -174,15 +174,15 @@ js_code = f"""window.DASHBOARD_DATA = {chart_json_str};
 const SNAPSHOTS = {{
   "2026-10-25": {{
     badge: "最後同步：{data['last_updated']}",
-    heroTotal: "548,920",
-    heroDelta: "🟢 +67,272 (+14.0%) vs 昨日",
-    heroSub: "核心預告與社群擴散總聲量達 318,992（單日 +54,645 / +20.7%），加計 162 則新聞媒體與外部長短影音跨平台總觸及達 548,920 次。",
+    heroTotal: "552,497",
+    heroDelta: "🟢 +70,849 (+14.7%) vs 昨日｜09:00 較 04:15 +3,577",
+    heroSub: "核心預告與社群擴散總聲量達 322,569（單日 +58,222 / +22.0%｜09:00 晨間刷新），加計 164 則新聞媒體與外部長短影音跨平台總觸及達 552,497 次。",
     kpis: [
-      {{ val: "244,876", delta: "🟢 +46,668 (+23.5%)", pct: "92%" }},
+      {{ val: "248,421", delta: "🟢 +50,213 (+25.3%)｜較04:15 +3,545", pct: "92%" }},
       {{ val: "279 粉 / 429 互動", delta: "🟢 張翰 148 讚｜謝文憲 82 讚", pct: "84%" }},
       {{ val: "389 粉 / 820 互動", delta: "🟢 +15 粉 (+4.0%)｜45 貼文", pct: "78%" }},
       {{ val: "31.5K 瀏覽 / 4,531 互動", delta: "🟢 單篇飆至 3,536 讚 (+261%)", pct: "96%" }},
-      {{ val: "162 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 97 (連3日滿檔)", delta: "🟢 雙片搜尋對照 51 : 43 連 4 日領先《消失的她》｜今日 16:00 高雄電影節特映", pct: "90%" }}
+      {{ val: "164 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 97 (04:15 讀數)", delta: "🟢 雙片搜尋對照 51 : 43 連 4 日領先《消失的她》｜今日 16:00 高雄電影節特映", pct: "90%" }}
     ]
   }},
   "2026-10-24": {{
@@ -481,10 +481,10 @@ html_out = f"""<!DOCTYPE html>
       <div>
         <div class="hero-tag">CROSS-PLATFORM TOTAL BUZZ &amp; REACH (D-4 COUNTDOWN)</div>
         <h1 class="hero-main-title">全網跨平台累計總觸及與互動聲量</h1>
-        <div class="hero-big-num" id="hero-total-val">548,920</div>
-        <span class="hero-delta-pill" id="hero-total-delta">🟢 +67,272 (+14.0%) vs 昨日</span>
+        <div class="hero-big-num" id="hero-total-val">552,497</div>
+        <span class="hero-delta-pill" id="hero-total-delta">🟢 +70,849 (+14.7%) vs 昨日｜09:00 較 04:15 +3,577</span>
         <p class="hero-desc" id="hero-sub-text">
-          核心預告與社群擴散總聲量達 318,992（單日 +54,645 / +20.7%），加計 162 則新聞媒體與外部長短影音跨平台總觸及達 548,920 次。
+          核心預告與社群擴散總聲量達 322,569（單日 +58,222 / +22.0%｜09:00 晨間刷新），加計 164 則新聞媒體與外部長短影音跨平台總觸及達 552,497 次。
         </p>
       </div>
       <div class="contrib-bar-wrap">
@@ -507,8 +507,8 @@ html_out = f"""<!DOCTYPE html>
           <span class="card-label">YouTube 官方長片總觀看 (6支)</span>
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
         </div>
-        <div class="card-val" id="kpi-val-0">244,876</div>
-        <div class="card-delta" id="kpi-delta-0">🟢 +46,668 (+23.5%)</div>
+        <div class="card-val" id="kpi-val-0">248,421</div>
+        <div class="card-delta" id="kpi-delta-0">🟢 +50,213 (+25.3%)｜較04:15 +3,545</div>
       </div>
       <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-0" style="width:92%;"></div></div>
     </div>
@@ -559,7 +559,7 @@ html_out = f"""<!DOCTYPE html>
           <span class="card-label">媒體新聞、影展與論壇（Dcard / PTT / Google Trends）擴散</span>
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
         </div>
-        <div class="card-val" id="kpi-val-4">162 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 97 (連3日滿檔)</div>
+        <div class="card-val" id="kpi-val-4">164 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 97 (04:15 讀數)</div>
         <div class="card-delta" id="kpi-delta-4">🟢 雙片搜尋對照 51 : 43 連 4 日領先《消失的她》｜今日 16:00 高雄電影節特映</div>
       </div>
       <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-4" style="width:90%;"></div></div>
