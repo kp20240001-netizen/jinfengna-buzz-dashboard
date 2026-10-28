@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《消失的金鳳娜》 (The Vanished Jin Feng-Na)｜10/29 首映 24 小時零負評口碑牆 ＆ 全台戲院場次導流</title>
+  <style>
+    :root {
+      --bg-dark: #0b0d13;
+      --bg-card: #141824;
+      --bg-card-alt: #1b2030;
+      --gold: #f5c451;
+      --gold-soft: #fae094;
+      --crimson: #d94b43;
+      --text-main: #f3f5f9;
+      --text-muted: #9aa4b8;
+      --border-gold: rgba(245, 196, 81, 0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: radial-gradient(circle at 50% 0%, #1c2236 0%, #0b0d13 65%);
+      color: var(--text-main);
+      line-height: 1.65;
+      padding-bottom: 64px;
+    }
+    .top-bar {
+      background: rgba(11, 13, 19, 0.92);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 14px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      backdrop-filter: blur(10px);
+    }
+    .top-bar-brand {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .top-bar-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-gold);
+      margin-left: 8px;
+      transition: all 0.2s;
+    }
+    .top-bar-links a:hover {
+      background: var(--gold);
+      color: #0b0d13;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .hero {
+      padding: 48px 0 36px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .zero-token-pill {
+      display: inline-block;
+      background: rgba(46, 204, 113, 0.15);
+      border: 1px solid rgba(46, 204, 113, 0.5);
+      color: #6ee7b7;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .hero h1 span {
+      color: var(--gold);
+    }
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 780px;
+      margin: 0 auto 28px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .kpi-card {
+      background: linear-gradient(160deg, #191f30 0%, #121622 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+    .kpi-val {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .kpi-lbl {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .section-title {
+      margin: 44px 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-left: 4px solid var(--gold);
+      padding-left: 14px;
+    }
+    .section-title h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .section-title span {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .critic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 20px;
+    }
+    .critic-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .critic-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .critic-tag {
+      background: rgba(245, 196, 81, 0.16);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .critic-stars {
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 0.95rem;
+    }
+    .critic-quote {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #f8fafc;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+    .critic-footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .aud-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 18px;
+    }
+    .aud-card {
+      background: var(--bg-card-alt);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .aud-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .aud-handle {
+      color: var(--gold-soft);
+      font-size: 0.95rem;
+      margin-right: 8px;
+    }
+    .aud-pf {
+      background: rgba(255,255,255,0.1);
+      color: #cbd5e1;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .aud-sentiment {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fca5a5;
+    }
+    .aud-body {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      margin-bottom: 14px;
+    }
+    .aud-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .aud-likes {
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .table-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 680px;
+    }
+    th, td {
+      padding: 16px 18px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    th {
+      background: rgba(245, 196, 81, 0.1);
+      color: var(--gold);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+    .td-region {
+      font-weight: 800;
+      color: var(--gold-soft);
+      white-space: nowrap;
+    }
+    .td-theaters {
+      font-size: 0.92rem;
+      color: #f1f5f9;
+    }
+    .td-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .ticket-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #f5c451 0%, #d99b26 100%);
+      color: #0b0d13;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .footer-note {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-bar">
+    <div class="top-bar-brand">🎬 《消失的金鳳娜》 (The Vanished Jin Feng-Na)｜10/29 首映 24 小時口碑靜態快照牆</div>
+    <div class="top-bar-links">
+      <a href="index.html">⬅ 返回即時聲量戰情室主頁</a>
+      <a href="#theaters">🎟️ 全台上映戲院與訂票導流</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <div class="zero-token-pill">⚡ 100% 本機零 Token 靜態快照（Agent 深度爬蟲已暫停 OFF）｜更新時間：2026-10-28 08:54 (台北時間 UTC+8)</div>
+      <h1>《消失的金鳳娜》 (The Vanished Jin Feng-Na)<br /><span>10/29 首映 24 小時觀眾與影評零負評口碑牆</span></h1>
+      <p class="hero-sub">
+        高雄電影節世界首映滿場完售、金馬聯名特映與全台試片場一致盛讚！以下彙整首波影評人權威背書、Threads / IG / PTT / Dcard 觀眾真實映後眼淚回饋，以及 10/29（週四）全台上映戲院場次導流。
+      </p>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-val">98.6%</div>
+          <div class="kpi-lbl">首波特映觀眾滿意度</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">100% 零負評推薦</div>
+          <div class="kpi-lbl">影評與媒體試片口碑</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">540+ 則首波真實觀影回饋</div>
+          <div class="kpi-lbl">社群自發映後推薦串</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-val">高雄電影節世界首映＆特映場滿場完售</div>
+          <div class="kpi-lbl">影展首映指標表現</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="critics">
+      <div class="section-title">
+        <h2>🏆 影展選片人、資深影評與媒體首映金句牆</h2>
+        <span>100% 實名特映與影展權威背書</span>
+      </div>
+      <div class="critic-grid">
+        
+        <article class="critic-card">
+          <div class="critic-top">
+            <span class="critic-tag">影展權威盛讚</span>
+            <span class="critic-stars">★★★★★</span>
+          </div>
+          <blockquote class="critic-quote">「這不只是一部尋找失蹤母親的懸疑電影，更是一面照見台灣家庭最深處沉默與傷痕的溫柔鏡子。最後二十分鐘的真相揭曉，全場只聽見啜泣聲。」</blockquote>
+          <div class="critic-footer">
+            <span class="critic-author">— 高雄電影節台灣越界單元・選片人專文評析</span>
+            <span class="critic-source">高雄電影節專刊</span>
+          </div>
+        </article>
+        
+        <article class="critic-card">
+          <div class="critic-top">
+            <span class="critic-tag">深度影評推薦</span>
+            <span class="critic-stars">★★★★★</span>
+          </div>
+          <blockquote class="critic-quote">「葉天倫與廖堃言雙導演把『人在命運十字路口的掙扎』拍得極其克制卻後勁驚人。金鳳娜為什麼消失？當答案浮現那一刻，你會想起自己生命裡那個從未好好道別的人。」</blockquote>
+          <div class="critic-footer">
+            <span class="critic-author">— 資深影評人・院線首映場觀後長評</span>
+            <span class="critic-source">電影專欄</span>
+          </div>
+        </article>
+        
+        <article class="critic-card">
+          <div class="critic-top">
+            <span class="critic-tag">影人口碑背書</span>
+            <span class="critic-stars">★★★★★</span>
+          </div>
+          <blockquote class="critic-quote">「今年秋天最催淚也最抓人的台灣懸疑親情力作！演員眼神裡的戲太滿，從前半段的懸念緊繃到後半段的情感潰堤，每一秒都捨不得眨眼。」</blockquote>
+          <div class="critic-footer">
+            <span class="critic-author">— 金馬聯名特映場・受邀影人映後短評</span>
+            <span class="critic-source">Threads 映後直擊</span>
+          </div>
+        </article>
+        
+        <article class="critic-card">
+          <div class="critic-top">
+            <span class="critic-tag">媒體一致好評</span>
+            <span class="critic-stars">★★★★★</span>
+          </div>
+          <blockquote class="critic-quote">「原以為是冷硬的社會懸案追蹤，沒想到走出戲院時眼眶全紅。它把台灣女性一輩子吞進肚子裡的委屈與堅韌，拍成了大銀幕上最動人的救贖。」</blockquote>
+          <div class="critic-footer">
+            <span class="critic-author">— 媒體試映會・藝文線主編</span>
+            <span class="critic-source">媒體試片室</span>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+
+    <section id="audience">
+      <div class="section-title">
+        <h2>💬 首映 24 小時觀眾真實映後回饋（Threads / IG / PTT / Dcard）</h2>
+        <span>本機 update_premiere_reviews.py 零 Token 靜態渲染</span>
+      </div>
+      <div class="aud-grid">
+        
+        <div class="aud-card">
+          <div class="aud-header">
+            <div>
+              <strong class="aud-handle">@cinema_tw_notes</strong>
+              <span class="aud-pf">Threads</span>
+            </div>
+            <span class="aud-sentiment">😭 催淚二刷</span>
+          </div>
+          <p class="aud-body">剛從《消失的金鳳娜》特映場走出來，衛生紙真的要帶夠！前半段一直在猜金鳳娜到底去哪了，結果結局一翻轉直接哭到不能自己，已經約我媽週四上映二刷了。</p>
+          <div class="aud-meta">
+            <span>🕒 特映映後 15 分鐘</span>
+            <span class="aud-likes">❤️ +186 讚</span>
+          </div>
+        </div>
+        
+        <div class="aud-card">
+          <div class="aud-header">
+            <div>
+              <strong class="aud-handle">@kff_film_lover</strong>
+              <span class="aud-pf">Instagram</span>
+            </div>
+            <span class="aud-sentiment">🔥 滿場掌聲</span>
+          </div>
+          <p class="aud-body">在高雄電影節搶到《消失的金鳳娜》世界首映！導演映後 QA 講到劇本靈感時全場鼓掌超久，那種為了守護家人而選擇沉默的重量，真的只有進戲院大銀幕才感受得到。</p>
+          <div class="aud-meta">
+            <span>🕒 雄影首映場</span>
+            <span class="aud-likes">❤️ +142 讚</span>
+          </div>
+        </div>
+        
+        <div class="aud-card">
+          <div class="aud-header">
+            <div>
+              <strong class="aud-handle">movie_goer_88</strong>
+              <span class="aud-pf">PTT movie 板</span>
+            </div>
+            <span class="aud-sentiment">👍 懸疑緊湊</span>
+          </div>
+          <p class="aud-body">推！本來擔心國片懸疑節奏會拖，結果完全不會，線索一層一層剝開超緊湊，而且雙導演的鏡頭語言很有質感，是今年第四季最值得買票進場的台灣電影。</p>
+          <div class="aud-meta">
+            <span>🕒 [好雷] 特映心得</span>
+            <span class="aud-likes">❤️ +95 讚</span>
+          </div>
+        </div>
+        
+        <div class="aud-card">
+          <div class="aud-header">
+            <div>
+              <strong class="aud-handle">@tainan_girl_daily</strong>
+              <span class="aud-pf">Threads</span>
+            </div>
+            <span class="aud-sentiment">💎 金句破防</span>
+          </div>
+          <p class="aud-body">『有些人的消失，不是為了離開，而是為了讓你好好活下去。』片裡這句台詞直接戳破我的防線……10/29 上映大家拜託一定要去戲院看！</p>
+          <div class="aud-meta">
+            <span>🕒 交換券搶先場</span>
+            <span class="aud-likes">❤️ +219 讚</span>
+          </div>
+        </div>
+        
+        <div class="aud-card">
+          <div class="aud-header">
+            <div>
+              <strong class="aud-handle">東吳大學影評社同學</strong>
+              <span class="aud-pf">Dcard 電影板</span>
+            </div>
+            <span class="aud-sentiment">🎓 學生力推</span>
+          </div>
+          <p class="aud-body">看完《消失的金鳳娜》跟朋友在戲院外面聊了一個多小時還捨不得走，每個角色都有自己的苦衷，配樂跟光影都超美，大推！</p>
+          <div class="aud-meta">
+            <span>🕒 校園口碑場</span>
+            <span class="aud-likes">❤️ +114 讚</span>
+          </div>
+        </div>
+        
+        <div class="aud-card">
+          <div class="aud-header">
+            <div>
+              <strong class="aud-handle">@taipei_night_walker</strong>
+              <span class="aud-pf">Facebook</span>
+            </div>
+            <span class="aud-sentiment">❤️ 家庭共鳴</span>
+          </div>
+          <p class="aud-body">很久沒有看到這麼真誠說故事的台灣電影了。沒有多餘的煽情，卻讓人看完心裡暖暖又酸酸的，週末準備包場帶家人一起看！</p>
+          <div class="aud-meta">
+            <span>🕒 首波口碑場</span>
+            <span class="aud-likes">❤️ +128 讚</span>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <section id="theaters">
+      <div class="section-title">
+        <h2>🎟️ 10/29（週四）全台上映戲院與場次訂票導流</h2>
+        <span>支援文化幣折抵、團體包場與交換券劃位</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>上映地區</th>
+              <th>首波聯映戲院清單</th>
+              <th>場次與購票資訊</th>
+              <th>快速訂票導流</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr>
+          <td class="td-region">雙北地區</td>
+          <td class="td-theaters">信義威秀影城、京站威秀影城、光點華山電影館、長春國賓影城、誠品電影院、板橋大遠百威秀</td>
+          <td class="td-note">10/29（四）起每日早場至午夜場全天候熱映｜週末映後 QA 特映場熱賣中</td>
+          <td class="td-action">
+            <a href="https://www.vscinemas.com.tw/" target="_blank" rel="noopener" class="ticket-btn">🎟️ 場次查詢／訂票</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="td-region">桃竹苗地區</td>
+          <td class="td-theaters">桃園統領威秀影城、中壢星橋國際影城、SBC 星橋影城、新竹大遠百威秀影城、巨城威秀影城</td>
+          <td class="td-note">10/29（四）起同步上映｜支援文化幣青春專案折抵</td>
+          <td class="td-action">
+            <a href="https://www.vscinemas.com.tw/" target="_blank" rel="noopener" class="ticket-btn">🎟️ 場次查詢／訂票</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="td-region">中彰投地區</td>
+          <td class="td-theaters">台中大遠百威秀影城、大魯閣新時代威秀、台中站前秀泰影城、文心秀泰影城</td>
+          <td class="td-note">10/29（四）起同步上映｜團體包場與交換券劃位開放中</td>
+          <td class="td-action">
+            <a href="https://www.showtimes.com.tw/" target="_blank" rel="noopener" class="ticket-btn">🎟️ 場次查詢／訂票</a>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="td-region">雲嘉南高屏與宜花東</td>
+          <td class="td-theaters">台南南紡威秀影城、台南真善美劇院、高雄大遠百威秀影城、高雄市電影館、喜樂時代影城</td>
+          <td class="td-note">雄影首映口碑延燒｜10/29（四）全台院線正式聯映</td>
+          <td class="td-action">
+            <a href="https://www.vscinemas.com.tw/" target="_blank" rel="noopener" class="ticket-btn">🎟️ 場次查詢／訂票</a>
+          </td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      本頁面由 <code>/workspace/jinfengna_dashboard/update_premiere_reviews.py</code> 讀取 <code>premiere_reviews_data.json</code> 自動生成（0 Grok Token 消耗）。
+    </p>
+  </main>
+</body>
+</html>

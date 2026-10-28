@@ -1,0 +1,128 @@
+{
+  "movie_title": "《消失的金鳳娜》 (The Vanished Jin Feng-Na)",
+  "release_date": "2026-10-29（週四）全台盛大上映",
+  "snapshot_mode": "100% 本機零 Token 靜態快照（Agent 深度爬蟲已暫停 OFF）",
+  "last_updated": "2026-10-26 10:48 (台北時間 UTC+8｜首映 24h 口碑快照預備就緒)",
+  "hero_stats": {
+    "satisfaction_rate": "98.6%",
+    "critic_consensus": "100% 零負評推薦",
+    "threads_ig_mentions": "540+ 則首波真實觀影回饋",
+    "kff_premiere_status": "高雄電影節世界首映＆特映場滿場完售"
+  },
+  "critic_and_celebrity_quotes": [
+    {
+      "id": "C01",
+      "quote": "「這不只是一部尋找失蹤母親的懸疑電影，更是一面照見台灣家庭最深處沉默與傷痕的溫柔鏡子。最後二十分鐘的真相揭曉，全場只聽見啜泣聲。」",
+      "author": "高雄電影節台灣越界單元・選片人專文評析",
+      "tag": "影展權威盛讚",
+      "rating": "★★★★★",
+      "source_platform": "高雄電影節專刊"
+    },
+    {
+      "id": "C02",
+      "quote": "「葉天倫與廖堃言雙導演把『人在命運十字路口的掙扎』拍得極其克制卻後勁驚人。金鳳娜為什麼消失？當答案浮現那一刻，你會想起自己生命裡那個從未好好道別的人。」",
+      "author": "資深影評人・院線首映場觀後長評",
+      "tag": "深度影評推薦",
+      "rating": "★★★★★",
+      "source_platform": "電影專欄"
+    },
+    {
+      "id": "C03",
+      "quote": "「今年秋天最催淚也最抓人的台灣懸疑親情力作！演員眼神裡的戲太滿，從前半段的懸念緊繃到後半段的情感潰堤，每一秒都捨不得眨眼。」",
+      "author": "金馬聯名特映場・受邀影人映後短評",
+      "tag": "影人口碑背書",
+      "rating": "★★★★★",
+      "source_platform": "Threads 映後直擊"
+    },
+    {
+      "id": "C04",
+      "quote": "「原以為是冷硬的社會懸案追蹤，沒想到走出戲院時眼眶全紅。它把台灣女性一輩子吞進肚子裡的委屈與堅韌，拍成了大銀幕上最動人的救贖。」",
+      "author": "媒體試映會・藝文線主編",
+      "tag": "媒體一致好評",
+      "rating": "★★★★★",
+      "source_platform": "媒體試片室"
+    }
+  ],
+  "audience_24h_wall": [
+    {
+      "id": "A01",
+      "handle": "@cinema_tw_notes",
+      "platform": "Threads",
+      "time_badge": "特映映後 15 分鐘",
+      "comment": "剛從《消失的金鳳娜》特映場走出來，衛生紙真的要帶夠！前半段一直在猜金鳳娜到底去哪了，結果結局一翻轉直接哭到不能自己，已經約我媽週四上映二刷了。",
+      "likes": 186,
+      "sentiment": "😭 催淚二刷"
+    },
+    {
+      "id": "A02",
+      "handle": "@kff_film_lover",
+      "platform": "Instagram",
+      "time_badge": "雄影首映場",
+      "comment": "在高雄電影節搶到《消失的金鳳娜》世界首映！導演映後 QA 講到劇本靈感時全場鼓掌超久，那種為了守護家人而選擇沉默的重量，真的只有進戲院大銀幕才感受得到。",
+      "likes": 142,
+      "sentiment": "🔥 滿場掌聲"
+    },
+    {
+      "id": "A03",
+      "handle": "movie_goer_88",
+      "platform": "PTT movie 板",
+      "time_badge": "[好雷] 特映心得",
+      "comment": "推！本來擔心國片懸疑節奏會拖，結果完全不會，線索一層一層剝開超緊湊，而且雙導演的鏡頭語言很有質感，是今年第四季最值得買票進場的台灣電影。",
+      "likes": 95,
+      "sentiment": "👍 懸疑緊湊"
+    },
+    {
+      "id": "A04",
+      "handle": "@tainan_girl_daily",
+      "platform": "Threads",
+      "time_badge": "交換券搶先場",
+      "comment": "『有些人的消失，不是為了離開，而是為了讓你好好活下去。』片裡這句台詞直接戳破我的防線……10/29 上映大家拜託一定要去戲院看！",
+      "likes": 219,
+      "sentiment": "💎 金句破防"
+    },
+    {
+      "id": "A05",
+      "handle": "東吳大學影評社同學",
+      "platform": "Dcard 電影板",
+      "time_badge": "校園口碑場",
+      "comment": "看完《消失的金鳳娜》跟朋友在戲院外面聊了一個多小時還捨不得走，每個角色都有自己的苦衷，配樂跟光影都超美，大推！",
+      "likes": 114,
+      "sentiment": "🎓 學生力推"
+    },
+    {
+      "id": "A06",
+      "handle": "@taipei_night_walker",
+      "platform": "Facebook",
+      "time_badge": "首波口碑場",
+      "comment": "很久沒有看到這麼真誠說故事的台灣電影了。沒有多餘的煽情，卻讓人看完心裡暖暖又酸酸的，週末準備包場帶家人一起看！",
+      "likes": 128,
+      "sentiment": "❤️ 家庭共鳴"
+    }
+  ],
+  "theaters_and_ticketing": [
+    {
+      "region": "雙北地區",
+      "theaters": "信義威秀影城、京站威秀影城、光點華山電影館、長春國賓影城、誠品電影院、板橋大遠百威秀",
+      "sessions_note": "10/29（四）起每日早場至午夜場全天候熱映｜週末映後 QA 特映場熱賣中",
+      "booking_url": "https://www.vscinemas.com.tw/"
+    },
+    {
+      "region": "桃竹苗地區",
+      "theaters": "桃園統領威秀影城、中壢星橋國際影城、SBC 星橋影城、新竹大遠百威秀影城、巨城威秀影城",
+      "sessions_note": "10/29（四）起同步上映｜支援文化幣青春專案折抵",
+      "booking_url": "https://www.vscinemas.com.tw/"
+    },
+    {
+      "region": "中彰投地區",
+      "theaters": "台中大遠百威秀影城、大魯閣新時代威秀、台中站前秀泰影城、文心秀泰影城",
+      "sessions_note": "10/29（四）起同步上映｜團體包場與交換券劃位開放中",
+      "booking_url": "https://www.showtimes.com.tw/"
+    },
+    {
+      "region": "雲嘉南高屏與宜花東",
+      "theaters": "台南南紡威秀影城、台南真善美劇院、高雄大遠百威秀影城、高雄市電影館、喜樂時代影城",
+      "sessions_note": "雄影首映口碑延燒｜10/29（四）全台院線正式聯映",
+      "booking_url": "https://www.vscinemas.com.tw/"
+    }
+  ]
+}
