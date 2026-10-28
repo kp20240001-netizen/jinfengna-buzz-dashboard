@@ -13,7 +13,7 @@ import json
 import os
 import shutil
 
-BASE_DIR = "/workspace/jinfengna_dashboard"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_JSON = os.path.join(BASE_DIR, "premiere_reviews_data.json")
 OUT_MAIN = os.path.join(BASE_DIR, "premiere_24h_reviews.html")
 STATIC_DIR = os.path.join(BASE_DIR, "static_site")

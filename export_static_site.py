@@ -2,7 +2,7 @@
 import json
 import os
 
-BASE_DIR = "/workspace/jinfengna_dashboard"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(BASE_DIR, "dashboard_data.json"), "r", encoding="utf-8") as f:
     data = json.load(f)
 
