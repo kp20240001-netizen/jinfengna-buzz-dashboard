@@ -8,7 +8,7 @@ with open(os.path.join(BASE_DIR, "dashboard_data.json"), "r", encoding="utf-8") 
 
 os.makedirs(os.path.join(BASE_DIR, "docs"), exist_ok=True)
 
-# Build Heatmap Rows (with 10/15, 10/22, 10/23, 10/24, 10/25 columns)
+# Build Heatmap Rows (with 10/15, 10/22, 10/23, 10/24, 10/25, 10/28 columns)
 hm_rows_html = []
 for r in data["heatmap_rows"]:
     pf = r["平台"]
@@ -35,7 +35,8 @@ for r in data["heatmap_rows"]:
         f"<td class='col-num col-val'>{r.get('10/22 首映', '—')}</td>"
         f"<td class='col-num col-val'>{r.get('10/23', '—')}</td>"
         f"<td class='col-num col-val'>{r.get('10/24', '—')}</td>"
-        f"<td class='col-num col-val {today_cls}'>{r.get('10/25 今日', '—')}</td>"
+        f"<td class='col-num col-val'>{r.get('10/25 今日', '—')}</td>"
+        f"<td class='col-num col-val {today_cls}'>{r.get('10/28 今日', '—')}</td>"
         f"<td class='col-center'>{badge_html}</td>"
         f"<td class='col-delta'>{insight}</td>"
         f"</tr>"
@@ -68,7 +69,7 @@ for r in data["quantitative_full_table"]:
     else:
         st_badge = "<span class='status-pill status-pill-red'>🔴 下滑</span>"
 
-    search_text = f"{pf} {r['指標名稱']} {r.get('2026-10-25','')} {r['單日變化']}".lower()
+    search_text = f"{pf} {r['指標名稱']} {r.get('2026-10-28','')} {r['單日變化']}".lower()
     quant_rows_html.append(
         f"<tr class='detail-item' data-group='{cat_group}' data-search='{search_text}'>"
         f"<td><span class='pf-tag'>{pf}</span></td>"
@@ -77,7 +78,8 @@ for r in data["quantitative_full_table"]:
         f"<td class='col-num'>{r.get('2026-10-22', '—')}</td>"
         f"<td class='col-num'>{r.get('2026-10-23', '—')}</td>"
         f"<td class='col-num'>{r.get('2026-10-24', '—')}</td>"
-        f"<td class='col-num col-highlight'>{r.get('2026-10-25', '—')}</td>"
+        f"<td class='col-num'>{r.get('2026-10-25', '—')}</td>"
+        f"<td class='col-num col-highlight'>{r.get('2026-10-28', '—')}</td>"
         f"<td class='col-num col-delta-text'>{r['單日變化']}</td>"
         f"<td class='col-center'>{st_badge}</td>"
         f"</tr>"
@@ -172,6 +174,19 @@ chart_json_str = json.dumps(chart_payload, ensure_ascii=False)
 js_code = f"""window.DASHBOARD_DATA = {chart_json_str};
 
 const SNAPSHOTS = {{
+  "2026-10-28": {{
+    badge: "最後同步：{data['last_updated']}",
+    heroTotal: "418,861（混合口徑）",
+    heroDelta: "🟡 混合口徑（YouTube 顯示值＋未刷新基線），精確全網總數未重算",
+    heroSub: "10/28 下午實測：YouTube 長片顯示值約 336,466＋Shorts 26,852＋導演／外部 17,172＋Threads 瀏覽 31,500（基線未刷新）＋社群互動 5,812（基線）＋X 曝光 1,059（基線）＝418,861；精確總數因 FB／Threads 搜尋／X 未取得、YouTube 僅得顯示值而無法重算，基線 552,497 僅供參考。",
+    kpis: [
+      {{ val: "約 336,466（顯示值）", delta: "🟢 地獄花絮 12萬、30秒預告 14萬、電影預告 3.4萬、正式預告 3萬、Teaser 1.2萬、166號 466", pct: "92%" }},
+      {{ val: "未取得（登入牆）", delta: "🟡 10/28 下午官方粉專與名人皆未取得，基線 279 粉 / 429 互動不計入新數", pct: "50%" }},
+      {{ val: "463 粉（互動未取得）", delta: "🟢 +74 粉（基線 389）；貼文總數與累積互動需登入，未取得", pct: "85%" }},
+      {{ val: "184 粉（官方 82＋@9wo0725 102）", delta: "🟢 官方 +11 粉；自然熱門搜尋未取得，基線 4,531 互動不計入新數", pct: "80%" }},
+      {{ val: "Trends 100：28｜新聞新增 15 則", delta: "🟢 最新一週 100：28；新聞總數未顯示，維持 164 不計入新總數，10/26-28 新增 15 則", pct: "90%" }}
+    ]
+  }},
   "2026-10-25": {{
     badge: "最後同步：{data['last_updated']}",
     heroTotal: "552,497",
@@ -429,7 +444,7 @@ html_out = f"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>《消失的金鳳娜》THE EVIL INSIDE｜即時聲量戰情室 (2026-10-25 D-4)</title>
+<title>《消失的金鳳娜》THE EVIL INSIDE｜即時聲量戰情室 (2026-10-28 D-1)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@600;700;800&display=swap" rel="stylesheet">
@@ -468,7 +483,8 @@ html_out = f"""<!DOCTYPE html>
   <div class="snapshot-bar" id="kpi-overview">
     <div class="snapshot-label" id="hero-snap-badge">最後同步：{data['last_updated']}</div>
     <div class="snapshot-pills" role="group" aria-label="歷史日期快照切換">
-      <button type="button" class="snap-btn active" onclick="switchSnapshot('2026-10-25', this)">2026-10-25 最新 (D-4)</button>
+      <button type="button" class="snap-btn active" onclick="switchSnapshot('2026-10-28', this)">2026-10-28 最新 (D-1)</button>
+      <button type="button" class="snap-btn" onclick="switchSnapshot('2026-10-25', this)">2026-10-25 (D-4)</button>
       <button type="button" class="snap-btn" onclick="switchSnapshot('2026-10-24', this)">2026-10-24 爆發日</button>
       <button type="button" class="snap-btn" onclick="switchSnapshot('2026-10-23', this)">2026-10-23 發酵日</button>
       <button type="button" class="snap-btn" onclick="switchSnapshot('2026-10-22', this)">2026-10-22 首映日</button>
@@ -479,12 +495,12 @@ html_out = f"""<!DOCTYPE html>
   <section class="bento-grid" aria-label="核心聲量指標">
     <div class="bento-hero">
       <div>
-        <div class="hero-tag">CROSS-PLATFORM TOTAL BUZZ &amp; REACH (D-4 COUNTDOWN)</div>
+        <div class="hero-tag">CROSS-PLATFORM TOTAL BUZZ &amp; REACH (D-1 COUNTDOWN)</div>
         <h1 class="hero-main-title">全網跨平台累計總觸及與互動聲量</h1>
-        <div class="hero-big-num" id="hero-total-val">552,497</div>
-        <span class="hero-delta-pill" id="hero-total-delta">🟢 +70,849 (+14.7%) vs 昨日｜09:00 較 04:15 +3,577</span>
+        <div class="hero-big-num" id="hero-total-val">418,861（混合口徑）</div>
+        <span class="hero-delta-pill" id="hero-total-delta">🟡 混合口徑（YouTube 顯示值＋未刷新基線），精確全網總數未重算</span>
         <p class="hero-desc" id="hero-sub-text">
-          核心預告與社群擴散總聲量達 322,569（單日 +58,222 / +22.0%｜09:00 晨間刷新），加計 164 則新聞媒體與外部長短影音跨平台總觸及達 552,497 次。
+          10/28 下午實測：YouTube 長片顯示值約 336,466＋Shorts 26,852＋導演／外部 17,172＋Threads 瀏覽 31,500（基線未刷新）＋社群互動 5,812（基線）＋X 曝光 1,059（基線）＝418,861；精確總數因 FB／Threads 搜尋／X 未取得、YouTube 僅得顯示值而無法重算。
         </p>
       </div>
       <div class="contrib-bar-wrap">
@@ -507,8 +523,8 @@ html_out = f"""<!DOCTYPE html>
           <span class="card-label">YouTube 官方長片總觀看 (6支)</span>
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
         </div>
-        <div class="card-val" id="kpi-val-0">248,421</div>
-        <div class="card-delta" id="kpi-delta-0">🟢 +50,213 (+25.3%)｜較04:15 +3,545</div>
+        <div class="card-val" id="kpi-val-0">約 336,466（顯示值）</div>
+        <div class="card-delta" id="kpi-delta-0">🟢 地獄花絮 12萬、30秒預告 14萬、電影預告 3.4萬、正式預告 3萬、Teaser 1.2萬、166號 466</div>
       </div>
       <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-0" style="width:92%;"></div></div>
     </div>
@@ -520,10 +536,10 @@ html_out = f"""<!DOCTYPE html>
           <span class="card-label">FB 官方粉專與名人貼文擴散</span>
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
         </div>
-        <div class="card-val" id="kpi-val-1">279 粉 / 429 互動</div>
-        <div class="card-delta" id="kpi-delta-1">🟢 張翰 148 讚｜謝文憲 82 讚</div>
+        <div class="card-val" id="kpi-val-1">未取得（登入牆）</div>
+        <div class="card-delta" id="kpi-delta-1">🟡 10/28 下午官方粉專與名人皆未取得，基線 279 粉 / 429 互動不計入新數</div>
       </div>
-      <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-1" style="width:84%;"></div></div>
+      <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-1" style="width:50%;"></div></div>
     </div>
 
     <!-- Secondary Card 3 -->
@@ -533,10 +549,10 @@ html_out = f"""<!DOCTYPE html>
           <span class="card-label">IG 官方追蹤與 Reels 互動量</span>
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4"></circle></svg>
         </div>
-        <div class="card-val" id="kpi-val-2">389 粉 / 820 互動</div>
-        <div class="card-delta" id="kpi-delta-2">🟢 +15 粉 (+4.0%)｜45 貼文</div>
+        <div class="card-val" id="kpi-val-2">463 粉（互動未取得）</div>
+        <div class="card-delta" id="kpi-delta-2">🟢 +74 粉（基線 389）；貼文總數與累積互動需登入，未取得</div>
       </div>
-      <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-2" style="width:78%;"></div></div>
+      <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-2" style="width:85%;"></div></div>
     </div>
 
     <!-- Secondary Card 4 -->
@@ -546,10 +562,10 @@ html_out = f"""<!DOCTYPE html>
           <span class="card-label">Threads @9wo0725 與脆友爆文</span>
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         </div>
-        <div class="card-val" id="kpi-val-3">31.5K 瀏覽 / 4,531 互動</div>
-        <div class="card-delta" id="kpi-delta-3">🟢 單篇飆至 3,536 讚 (+261%)</div>
+        <div class="card-val" id="kpi-val-3">184 粉（官方 82＋@9wo0725 102）</div>
+        <div class="card-delta" id="kpi-delta-3">🟢 官方 +11 粉；自然熱門搜尋未取得，基線 4,531 互動不計入新數</div>
       </div>
-      <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-3" style="width:96%;"></div></div>
+      <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-3" style="width:80%;"></div></div>
     </div>
 
     <!-- Secondary Card 5 -->
@@ -559,8 +575,8 @@ html_out = f"""<!DOCTYPE html>
           <span class="card-label">媒體新聞、影展與論壇（Dcard / PTT / Google Trends）擴散</span>
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
         </div>
-        <div class="card-val" id="kpi-val-4">164 則新聞 ｜ PTT 15 推 ｜ Trends 熱度 97 (04:15 讀數)</div>
-        <div class="card-delta" id="kpi-delta-4">🟢 雙片搜尋對照 51 : 43 連 4 日領先《消失的她》｜今日 16:00 高雄電影節特映</div>
+        <div class="card-val" id="kpi-val-4">Trends 100：28｜新聞新增 15 則</div>
+        <div class="card-delta" id="kpi-delta-4">🟢 最新一週 100：28；新聞總數未顯示，維持 164 不計入新總數，10/26-28 新增 15 則</div>
       </div>
       <div class="mini-progress"><div class="mini-progress-fill" id="kpi-bar-4" style="width:90%;"></div></div>
     </div>
@@ -570,8 +586,8 @@ html_out = f"""<!DOCTYPE html>
   <section id="heatmap-matrix">
     <div class="sec-head">
       <div>
-        <h2 class="sec-title">1. 🟢🟡🔴 跨 7 大平台聲量成長熱力矩陣（10/15 → 10/25）</h2>
-        <p class="sec-sub">支援視圖切換與平台快速篩選，直觀掌握 10/22 首映日、10/23 發酵日、10/24 爆發日至 10/25 今日（D-4）的關鍵指標漲跌。</p>
+        <h2 class="sec-title">1. 🟢🟡🔴 跨 7 大平台聲量成長熱力矩陣（10/15 → 10/28）</h2>
+        <p class="sec-sub">支援視圖切換與平台快速篩選，直觀掌握 10/22 首映日、10/23 發酵日、10/24 爆發日、10/25（D-4）至 10/28 今日（D-1）的關鍵指標漲跌。</p>
       </div>
       <div class="pill-group" role="group" aria-label="視圖模式切換">
         <button type="button" class="pill-btn hm-mode-btn active" onclick="setHeatmapViewMode('combined', this)">綜合視圖（數值＋漲跌）</button>
@@ -598,7 +614,8 @@ html_out = f"""<!DOCTYPE html>
             <th class="col-num col-val">10/22 首映</th>
             <th class="col-num col-val">10/23 發酵</th>
             <th class="col-num col-val">10/24 昨日</th>
-            <th class="col-num col-val">10/25 今日</th>
+            <th class="col-num col-val">10/25</th>
+            <th class="col-num col-val">10/28 今日</th>
             <th class="col-center">狀態燈號</th>
             <th class="col-delta">日增幅 Δ% 與關鍵判讀</th>
           </tr>
@@ -622,7 +639,7 @@ html_out = f"""<!DOCTYPE html>
             <th>影片類型與片長</th>
             <th class="col-num">上架日期</th>
             <th>《消失的金鳳娜》專屬宣傳影片標題（點擊觀看）</th>
-            <th class="col-num">2026-10-25 觀看數</th>
+            <th class="col-num">2026-10-28 觀看數</th>
             <th class="col-num">按讚數</th>
             <th>連結</th>
           </tr>
@@ -638,8 +655,8 @@ html_out = f"""<!DOCTYPE html>
   <section id="trend-charts">
     <div class="sec-head">
       <div>
-        <h2 class="sec-title">2. 跨日聲量成長趨勢與 7 大平台結構分析（2026-10-25）</h2>
-        <p class="sec-sub">追蹤 10/15 至 10/25 跨日爆發斜率、7 大平台觸及結構占比、觀眾情緒極性與高頻討論文字雲。</p>
+        <h2 class="sec-title">2. 跨日聲量成長趨勢與 7 大平台結構分析（2026-10-28）</h2>
+        <p class="sec-sub">追蹤 10/15 至 10/28 跨日爆發斜率、7 大平台觸及結構占比、觀眾情緒極性與高頻討論文字雲；折線圖最後一點仍為 10/25，10/28 快照見上方 hero 與細部表。</p>
       </div>
     </div>
 
@@ -787,7 +804,7 @@ html_out = f"""<!DOCTYPE html>
   <section id="granular-details">
     <div class="sec-head">
       <div>
-        <h2 class="sec-title">4. 各平台細部數據與真實評論檢索庫（2026-10-25 最新）</h2>
+        <h2 class="sec-title">4. 各平台細部數據與真實評論檢索庫（2026-10-28 最新）</h2>
         <p class="sec-sub">提供即時關鍵字搜尋、平台快速過濾與分頁檢索，完整收錄 28 項量化指標、12 則 YouTube 留言、15 則 PTT 推文、Dcard 實測與 9 則表外新聞影評。</p>
       </div>
     </div>
@@ -824,7 +841,8 @@ html_out = f"""<!DOCTYPE html>
               <th class="col-num">10/22 首映</th>
               <th class="col-num">10/23</th>
               <th class="col-num">10/24</th>
-              <th class="col-num">10/25 今日</th>
+              <th class="col-num">10/25</th>
+              <th class="col-num">10/28 今日</th>
               <th class="col-num">單日變化</th>
               <th class="col-center">狀態</th>
             </tr>
